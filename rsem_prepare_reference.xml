@@ -19,6 +19,7 @@
       #if $polya.polya_length:
         --polyA-length $polya.polya_length
       #end if
+    #end if
     $ntog
     $bowtie
     $bowtietwo
