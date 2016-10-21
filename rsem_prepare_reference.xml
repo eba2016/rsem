@@ -12,16 +12,13 @@
     rsem-prepare-reference 
     #if $polya.polya_use == 'add':
       #if $polya.polya_length:
-        --polyA-length $polya.polya_length
+        --polyA --polyA-length $polya.polya_length
       #end if
     #elif $polya.polya_use == 'subset':
       --no-polyA-subset $polya.no_polya_subset
       #if $polya.polya_length:
         --polyA-length $polya.polya_length
       #end if
-    #elif $polya.polya_use == 'none':
-      --no-polyA
-    #end if
     $ntog
     $bowtie
     $bowtietwo
@@ -75,9 +72,9 @@
     </param>
     <conditional name="polya">
       <param name="polya_use" type="select" label="PolyA ">
-        <option value="add" selected="true">Add poly(A) tails to all transcripts</option>
+        <option value="add">Add poly(A) tails to all transcripts</option>
         <option value="subset">Exclude poly(A) tails from selected transcripts</option>
-        <option value="none">Do not add poly(A) tails to any transcripts</option>
+        <option value="none" selected="true">Do not add poly(A) tails to any transcripts</option>
       </param>
       <when value="add">
         <param name="polya_length" type="integer" value="125" optional="true" label="The length of the poly(A) tails to be added. (Default: 125)">
